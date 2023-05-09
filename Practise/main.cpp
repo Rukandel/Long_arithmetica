@@ -1,13 +1,13 @@
 /*
-Программа для длинной арифметики для длинной арифметики
-Функционал:
-1 - Сравнение  
-2 - Сложение 
-3 - Вычитание 
-4 - Произведение
-5 - Факториал до заданного числа
-6 - Числа Фебаначчи до заданного числа
-6 - Числа Каталана до заданного числа
+РџСЂРѕРіСЂР°РјРјР° РґР»СЏ РґР»РёРЅРЅРѕР№ Р°СЂРёС„РјРµС‚РёРєРё РґР»СЏ РґР»РёРЅРЅРѕР№ Р°СЂРёС„РјРµС‚РёРєРё
+Р¤СѓРЅРєС†РёРѕРЅР°Р»:
+1 - РЎСЂР°РІРЅРµРЅРёРµ  
+2 - РЎР»РѕР¶РµРЅРёРµ 
+3 - Р’С‹С‡РёС‚Р°РЅРёРµ 
+4 - РџСЂРѕРёР·РІРµРґРµРЅРёРµ
+5 - Р¤Р°РєС‚РѕСЂРёР°Р» РґРѕ Р·Р°РґР°РЅРЅРѕРіРѕ С‡РёСЃР»Р°
+6 - Р§РёСЃР»Р° Р¤РµР±Р°РЅР°С‡С‡Рё РґРѕ Р·Р°РґР°РЅРЅРѕРіРѕ С‡РёСЃР»Р°
+6 - Р§РёСЃР»Р° РљР°С‚Р°Р»Р°РЅР° РґРѕ Р·Р°РґР°РЅРЅРѕРіРѕ С‡РёСЃР»Р°
 */
 
 #include <iostream>
@@ -20,36 +20,34 @@ class BigInt {
 	string digits;
 public:
 
-	//Constructors:
+	
 	BigInt(unsigned long long n = 0);
 	BigInt(string&);
 	BigInt(const char*);
 	BigInt(BigInt&);
 
-	//Helper Functions:
+
 	friend void divide_by_2(BigInt& a);
 	friend bool Null(const BigInt&);
 	friend int Length(const BigInt&);
 	int operator[](const int)const;
 
-	/* * * * Operator Overloading * * * */
-
-//Direct assignment
+	
 	BigInt& operator=(const BigInt&);
 
-	// Инкремент и дикремент
+	// РРЅРєСЂРµРјРµРЅС‚ Рё РґРёРєСЂРµРјРµРЅС‚
 	BigInt& operator++();
 	BigInt operator++(int temp);
 	BigInt& operator--();
 	BigInt operator--(int temp);
 
-	// Сложение и вычитание 
+	// РЎР»РѕР¶РµРЅРёРµ Рё РІС‹С‡РёС‚Р°РЅРёРµ
 	friend BigInt& operator+=(BigInt&, const BigInt&);
 	friend BigInt operator+(const BigInt&, const BigInt&);
 	friend BigInt operator-(const BigInt&, const BigInt&);
 	friend BigInt& operator-=(BigInt&, const BigInt&);
 
-	// Опертаторы сравнения
+	// РћРїРµСЂС‚Р°С‚РѕСЂС‹ СЃСЂР°РІРЅРµРЅРёСЏ
 	friend bool operator==(const BigInt&, const BigInt&);
 	friend bool operator!=(const BigInt&, const BigInt&);
 
@@ -58,28 +56,28 @@ public:
 	friend bool operator<(const BigInt&, const BigInt&);
 	friend bool operator<=(const BigInt&, const BigInt&);
 
-	// Умножение и деление
+	// РЈРјРЅРѕР¶РµРЅРёРµ Рё РґРµР»РµРЅРёРµ
 	friend BigInt& operator*=(BigInt&, const BigInt&);
 	friend BigInt operator*(const BigInt&, const BigInt&);
 	friend BigInt& operator/=(BigInt&, const BigInt&);
 	friend BigInt operator/(const BigInt&, const BigInt&);
 
-	// Деление с остатком
+	// Р”РµР»РµРЅРёРµ СЃ РѕСЃС‚Р°С‚РєРѕРј
 	friend BigInt operator%(const BigInt&, const BigInt&);
 	friend BigInt& operator%=(BigInt&, const BigInt&);
 
-	// Степенная функция
+	// РЎС‚РµРїРµРЅРЅР°СЏ С„СѓРЅРєС†РёСЏ
 	friend BigInt& operator^=(BigInt&, const BigInt&);
 	friend BigInt operator^(BigInt&, const BigInt&);
 
-	// Квадратный корень
+	// РљРІР°РґСЂР°С‚РЅС‹Р№ РєРѕСЂРµРЅСЊ
 	friend BigInt sqrt(BigInt& a);
 
-	// Чтение и запись числа 
+	// Р§С‚РµРЅРёРµ Рё Р·Р°РїРёСЃСЊ С‡РёСЃР»Р°
 	friend ostream& operator<<(ostream&, const BigInt&);
 	friend istream& operator>>(istream&, BigInt&);
 
-	// Понты
+	// РџРѕРЅС‚С‹
 	friend BigInt NthCatalan(int n);
 	friend BigInt NthFibonacci(int n);
 	friend BigInt Factorial(int n);
@@ -191,7 +189,7 @@ BigInt BigInt::operator--(int temp) {
 	return aux;
 }
 
-BigInt& operator+=(BigInt& a, const BigInt& b) { // сумма
+BigInt& operator+=(BigInt& a, const BigInt& b) { // СЃСѓРјРјР°
 	int t = 0, s, i;
 	int n = Length(a), m = Length(b);
 	if (m > n)
@@ -216,7 +214,7 @@ BigInt operator+(const BigInt& a, const BigInt& b) {
 	return temp;
 }
 
-BigInt& operator-=(BigInt& a, const BigInt& b) { // разность
+BigInt& operator-=(BigInt& a, const BigInt& b) { // СЂР°Р·РЅРѕСЃС‚СЊ
 	if (a < b)
 		throw("UNDERFLOW");
 	int n = Length(a), m = Length(b);
@@ -245,7 +243,7 @@ BigInt operator-(const BigInt& a, const BigInt& b) {
 	return temp;
 }
 
-BigInt& operator*=(BigInt& a, const BigInt& b) // умножение 
+BigInt& operator*=(BigInt& a, const BigInt& b) // СѓРјРЅРѕР¶РµРЅРёРµ 
 {
 	if (Null(a) || Null(b)) {
 		a = BigInt();
@@ -277,7 +275,7 @@ BigInt operator*(const BigInt& a, const BigInt& b) {
 	return temp;
 }
 
-BigInt& operator/=(BigInt& a, const BigInt& b) { // деление 
+BigInt& operator/=(BigInt& a, const BigInt& b) { // РґРµР»РµРЅРёРµ 
 	if (Null(b))
 		throw("Arithmetic Error: Division By 0");
 	if (a < b) {
@@ -342,14 +340,14 @@ BigInt& operator%=(BigInt& a, const BigInt& b) {
 	a = t;
 	return a;
 }
-BigInt operator%(const BigInt& a, const BigInt& b) { // деление с остатком
+BigInt operator%(const BigInt& a, const BigInt& b) { // РґРµР»РµРЅРёРµ СЃ РѕСЃС‚Р°С‚РєРѕРј
 	BigInt temp;
 	temp = a;
 	temp %= b;
 	return temp;
 }
 
-BigInt& operator^=(BigInt& a, const BigInt& b) { // возведение в степень
+BigInt& operator^=(BigInt& a, const BigInt& b) {  // РІРѕР·РІРµРґРµРЅРёРµ РІ СЃС‚РµРїРµРЅСЊ
 	BigInt Exponent, Base(a);
 	Exponent = b;
 	a = 1;
@@ -367,7 +365,7 @@ BigInt operator^(BigInt& a, BigInt& b) {
 	return temp;
 }
 
-void divide_by_2(BigInt& a) { // возведение в степень двойки
+void divide_by_2(BigInt& a) {  // РІРѕР·РІРµРґРµРЅРёРµ РІ СЃС‚РµРїРµРЅСЊ РґРІРѕР№РєРё
 	int add = 0;
 	for (int i = a.digits.size() - 1; i >= 0; i--) {
 		int digit = (a.digits[i] >> 1) + add;
@@ -378,7 +376,7 @@ void divide_by_2(BigInt& a) { // возведение в степень двойки
 		a.digits.pop_back();
 }
 
-BigInt sqrt(BigInt& a) { // Вычисление квадратного корня
+BigInt sqrt(BigInt& a) { // Р’С‹С‡РёСЃР»РµРЅРёРµ РєРІР°РґСЂР°С‚РЅРѕРіРѕ РєРѕСЂРЅСЏ
 	BigInt left(1), right(a), v(1), mid, prod;
 	divide_by_2(right);
 	while (left <= right) {
@@ -400,7 +398,7 @@ BigInt sqrt(BigInt& a) { // Вычисление квадратного корня
 	return v;
 }
 
-BigInt NthCatalan(int n) { // Вычисление Каталана
+BigInt NthCatalan(int n) { // Р’С‹С‡РёСЃР»РµРЅРёРµ РљР°С‚Р°Р»Р°РЅР°
 	BigInt a(1), b;
 	for (int i = 2; i <= n; i++)
 		a *= i;
@@ -413,7 +411,7 @@ BigInt NthCatalan(int n) { // Вычисление Каталана
 	return b;
 }
 
-BigInt NthFibonacci(int n) { // Вычисление Фибоначчи
+BigInt NthFibonacci(int n) { // Р’С‹С‡РёСЃР»РµРЅРёРµ Р¤РёР±РѕРЅР°С‡С‡Рё
 	BigInt a(1), b(1), c;
 	if (!n)
 		return c;
@@ -426,7 +424,7 @@ BigInt NthFibonacci(int n) { // Вычисление Фибоначчи
 	return b;
 }
 
-BigInt Factorial(int n) { // Вычисление факториала
+BigInt Factorial(int n) { // Р’С‹С‡РёСЃР»РµРЅРёРµ С„Р°РєС‚РѕСЂРёР°Р»Р°
 	BigInt f(1);
 	for (int i = 2; i <= n; i++)
 		f *= i;
@@ -452,7 +450,7 @@ ostream& operator<<(ostream& out, const BigInt& a) {
 }
 
 
-//Driver code with some examples
+
 int main()
 {
 	setlocale(LC_ALL, "Russian");
@@ -463,73 +461,74 @@ int main()
 	BigInt fifth = "123454321";
 
 	
-	cout << "Количество цифр в первом числе - " << Length(first) << '\n';
+	cout << "РљРѕР»РёС‡РµСЃС‚РІРѕ С†РёС„СЂ РІ РїРµСЂРІРѕРј С‡РёСЃР»Рµ - " << Length(first) << '\n';
 	
 
-	if (first == second) {											// Сравнение чисел 1 и 2
-		cout << "Первое и второе число равно!\n";
+	if (first == second) {											// РЎСЂР°РІРЅРµРЅРёРµ С‡РёСЃРµР» 1 Рё 2
+		cout << "РџРµСЂРІРѕРµ Рё РІС‚РѕСЂРѕРµ С‡РёСЃР»Рѕ СЂР°РІРЅРѕ!\n";
 	}
 	else
-		cout << "Первое и второе число не равны!\n";
+		cout << "РџРµСЂРІРѕРµ Рё РІС‚РѕСЂРѕРµ С‡РёСЃР»Рѕ РЅРµ СЂР°РІРЅС‹!\n";
 
 	
 
-	if (third < fourth) {										// Сравнение чисел 3 и 4
-		cout <<  "Третье число оказалось меньше второго!\n";
+	if (third < fourth) {										// РЎСЂР°РІРЅРµРЅРёРµ С‡РёСЃРµР» 3 Рё 4
+		cout <<  "РўСЂРµС‚СЊРµ С‡РёСЃР»Рѕ РѕРєР°Р·Р°Р»РѕСЃСЊ РјРµРЅСЊС€Рµ РІС‚РѕСЂРѕРіРѕ!\n";
 	}
 
 	if (fifth > fourth) {
-		cout << "Пятое число длиннее четвертого!\n";
+		cout << "РџСЏС‚РѕРµ С‡РёСЃР»Рѕ РґР»РёРЅРЅРµРµ С‡РµС‚РІРµСЂС‚РѕРіРѕ!\n";
 	}
 
-															// Вывод всех чисел 
-	cout << "Первое число = " << first << '\n';
-	cout << "Второе число = " << second << '\n';
-	cout << "Третье число = " << third << '\n';
-	cout << "Четвертое число = " << fourth << '\n';
-	cout << "Пятое число = " << fifth << '\n';
+															// Р’С‹РІРѕРґ РІСЃРµС… С‡РёСЃРµР» 
+	cout << "РџРµСЂРІРѕРµ С‡РёСЃР»Рѕ = " << first << '\n';
+	cout << "Р’С‚РѕСЂРѕРµ С‡РёСЃР»Рѕ = " << second << '\n';
+	cout << "РўСЂРµС‚СЊРµ С‡РёСЃР»Рѕ = " << third << '\n';
+	cout << "Р§РµС‚РІРµСЂС‚РѕРµ С‡РёСЃР»Рѕ = " << fourth << '\n';
+	cout << "РџСЏС‚РѕРµ С‡РёСЃР»Рѕ = " << fifth << '\n';
 	
-	first++;												// Инкремент к 1 числу
-	cout << "После инекремента первое число равно:";
+	first++;													// РРЅРєСЂРµРјРµРЅС‚ Рє 1 С‡РёСЃР»Сѓ
+	cout << "РџРѕСЃР»Рµ РёРЅРµРєСЂРµРјРµРЅС‚Р° РїРµСЂРІРѕРµ С‡РёСЃР»Рѕ СЂР°РІРЅРѕ:";
 	cout << first << '\n';
 	
 	
 	BigInt sum;
-	sum = (first + second + third + fourth + fifth);							// Сумма всех чисел 
-	cout << "Сумма все заданных чисел равна: "
+	sum = (first + second + third + fourth + fifth);								// РЎСѓРјРјР° РІСЃРµС… С‡РёСЃРµР» 
+	cout << "РЎСѓРјРјР° РІСЃРµ Р·Р°РґР°РЅРЅС‹С… С‡РёСЃРµР» СЂР°РІРЅР°: "
 		<< sum << '\n';
 	
 	BigInt diff;	
 
 	diff = (first - second);
-	cout << "Разность первого и второго числа равна : " << diff << "\n";// Разность 1 и 2
+	cout << "Р Р°Р·РЅРѕСЃС‚СЊ РїРµСЂРІРѕРіРѕ Рё РІС‚РѕСЂРѕРіРѕ С‡РёСЃР»Р° СЂР°РІРЅР° : " << diff << "\n";// Р Р°Р·РЅРѕСЃС‚СЊ 1 Рё 2
 
 
 	BigInt multiplication;
-	multiplication = first * second * third * fourth * fifth;					 // Произведение
-	cout << "Результат умножения все чисел равен = "
+	multiplication = first * second * third * fourth * fifth;					 // РџСЂРѕРёР·РІРµРґРµРЅРёРµ
+	cout << "Р РµР·СѓР»СЊС‚Р°С‚ СѓРјРЅРѕР¶РµРЅРёСЏ РІСЃРµ С‡РёСЃРµР» СЂР°РІРµРЅ = "
 		<< multiplication << '\n';
 
-	// Числа Фебоначчи до заданного числа
-	cout << "-------------------------Фибоначчи";
+
+	// Р§РёСЃР»Р° Р¤РµР±РѕРЅР°С‡С‡Рё РґРѕ Р·Р°РґР°РЅРЅРѕРіРѕ С‡РёСЃР»Р°
+	cout << "-------------------------Р¤РёР±РѕРЅР°С‡С‡Рё";
 		
 	for (int i = 0; i <= 10; i++) {
 		BigInt Fib;
 		Fib = NthFibonacci(i);
-		cout << "Фибоначчи " << i << " = " << Fib << '\n';
+		cout << "Р¤РёР±РѕРЅР°С‡С‡Рё " << i << " = " << Fib << '\n';
 	}
 
-	// Числа Каталан до заданного числа
-	cout << "-------------------------Каталан";
+	// Р§РёСЃР»Р° РљР°С‚Р°Р»Р°РЅ РґРѕ Р·Р°РґР°РЅРЅРѕРіРѕ С‡РёСЃР»Р°
+	cout << "-------------------------РљР°С‚Р°Р»Р°РЅ";
 		
 	for (int i = 0; i <= 10; i++) {
 		BigInt Cat;
 		Cat = NthCatalan(i);
-		cout << "Каталан " << i << " = " << Cat << '\n';
+		cout << "РљР°С‚Р°Р»Р°РЅ " << i << " = " << Cat << '\n';
 	}
 
-	// Cчитаем факториал до заданного числа
-	cout << "-------------------------Факториал";
+	// CС‡РёС‚Р°РµРј С„Р°РєС‚РѕСЂРёР°Р» РґРѕ Р·Р°РґР°РЅРЅРѕРіРѕ С‡РёСЃР»Р°
+	cout << "-------------------------Р¤Р°РєС‚РѕСЂРёР°Р»";
 	for (int i = 0; i <= 10; i++) {
 		BigInt fact;
 		fact = Factorial(i);
